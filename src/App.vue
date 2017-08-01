@@ -5,19 +5,21 @@
         <h1 class="page-title">{{ title }}</h1>
         <ul class="photos-list">
             <li class="photo-item" v-for="photo of photos">
-                <div class="panel">
-                    <h2 class="panel-title">{{ photo.title }}</h2>
-                    <div class="panel-content">
-                        <img class="panel-pic" :src="photo.url" :alt="photo.title">
-                    </div>
-                </div>
+                <panel :title="photo.title">
+                    <img class="panel-pic" :src="photo.url" :alt="photo.title"> 
+                </panel>
            </li>
         </ul>
     </div>
 </template> 
 
 <script>
+    import Panel from './components/shares/Panel.vue';
+
     export default {
+        components: {
+            'panel': Panel,
+        }
         data() {
             return {
                 title: 'Alurapic with Vue.js',
@@ -54,28 +56,6 @@
         width: 23%;
         
     }
-
-    .panel {
-        border-radius: 10px 10px 0 0 ;
-        box-shadow: #666 0 0 10px;
-        display: inline-block;
-        text-align: center;
-        vertical-align: top;
-        width: 100%;
-
-        .panel-title {
-            border-bottom: #4A78A6 2px inset;
-            background: linear-gradient(0deg, #799dc2, transparent);
-            margin: 0;
-            line-height: 30px;
-            font-size: 20px;
-        }
-        
-        .panel-pic {
-            width:100%;
-        }
-    }
-
 
     
 </style>
