@@ -69,6 +69,10 @@
         
     }
 
+    .panel-pic {
+        width: 100%;
+    }
+     
     .filter {
         display:block;
         width:100%

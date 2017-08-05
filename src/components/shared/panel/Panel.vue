@@ -3,9 +3,11 @@
 <template>
     <div class="panel">
         <h2 class="panel-title" @dblclick="isVisible = !isVisible">{{ title }}</h2>
-        <div class="panel-content" v-show="isVisible">
-            <slot></slot>
-        </div>
+        <transition name="fade-panel">
+            <div class="panel-content" v-show="isVisible">
+                <slot></slot>
+            </div>
+        </transition>
     </div>
 </template> 
 
@@ -37,13 +39,18 @@
             margin: 0;
             line-height: 30px;
             font-size: 20px;
+        }        
+  
+        .fade-panel-enter,
+        .fade-panel-leave-active  {
+            opacity: 0;
         }
         
-        .panel-pic {
-            width:100%;
+        .fade-panel-enter-active,
+        .fade-panel-leave-active {
+            transition: opacity 4s
         }
     }
-
-
     
+        
 </style>
