@@ -7,7 +7,7 @@
         <ul class="photos-list">
             <li class="photo-item" v-for="photo of photosWithFilter">
                 <panel :title="photo.title">
-                    <img class="panel-pic" :src="photo.url" :alt="photo.title"> 
+                    <responsive-img :url="photo.url" :titulo="photo.title"/>
                 </panel>
            </li>
         </ul>
@@ -16,10 +16,12 @@
 
 <script>
     import Panel from './components/shared/panel/Panel.vue';
+    import ResponsiveImg from './components/shared/responsive-img/ResponsiveImg.vue';
 
     export default {
         components: {
             'panel': Panel, 
+            'responsive-img':ResponsiveImg,
         },
         data() {
             return {
@@ -46,7 +48,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     .wrapper {
         font-family: Helvetica, Arial, sans-serif;
         width: 96%;
@@ -69,10 +71,6 @@
         
     }
 
-    .panel-pic {
-        width: 100%;
-    }
-     
     .filter {
         display:block;
         width:100%
