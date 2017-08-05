@@ -3,6 +3,8 @@
 <template>
     <div class="wrapper">
         <h1 class="page-title">{{ title }}</h1>
+        <input type="search" class="filter" @input="filter = $event.target.value" placeholder="search by title">
+        {{filter}}
         <ul class="photos-list">
             <li class="photo-item" v-for="photo of photos">
                 <panel :title="photo.title">
@@ -14,16 +16,17 @@
 </template> 
 
 <script>
-    import Panel from './components/shares/Panel.vue';
+    import Panel from './components/shared/panel/Panel.vue';
 
     export default {
         components: {
             'panel': Panel,
-        }
+        },
         data() {
             return {
                 title: 'Alurapic with Vue.js',
                 photos: [],
+                filter: '',
             }
         },
         created() {
@@ -57,5 +60,9 @@
         
     }
 
+    .filter {
+        display:block;
+        width:100%
+    }
     
 </style>

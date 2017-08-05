@@ -3,8 +3,7 @@
 <template>
     <div class="panel">
         <h2 class="panel-title">{{ title }}</h2>
-        <div class="panel-content">
-        </div>
+        <slot class="panel-content"></slot>
     </div>
 </template> 
 
@@ -15,7 +14,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
     .panel {
         border-radius: 10px 10px 0 0 ;
