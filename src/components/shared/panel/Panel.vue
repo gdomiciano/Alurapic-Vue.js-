@@ -2,8 +2,10 @@
 
 <template>
     <div class="panel">
-        <h2 class="panel-title">{{ title }}</h2>
-        <slot class="panel-content"></slot>
+        <h2 class="panel-title" @dblclick="isVisible = !isVisible">{{ title }}</h2>
+        <div class="panel-content" v-show="isVisible">
+            <slot></slot>
+        </div>
     </div>
 </template> 
 
@@ -11,6 +13,11 @@
     export default {
         name: 'panel',
         props: ['title'],
+        data() {
+            return {
+                isVisible: true,
+            }
+        }
     }
 </script>
 

@@ -3,7 +3,7 @@
 <template>
     <div class="wrapper">
         <h1 class="page-title">{{ title }}</h1>
-        <input type="search" class="filter" v-on:input="filter = $event.target.value" placeholder="search by title"/>
+        <input type="search" class="filter" @input="filter = $event.target.value" placeholder="search by title"/>
         <ul class="photos-list">
             <li class="photo-item" v-for="photo of photosWithFilter">
                 <panel :title="photo.title">
