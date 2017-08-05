@@ -3,10 +3,9 @@
 <template>
     <div class="wrapper">
         <h1 class="page-title">{{ title }}</h1>
-        <input type="search" class="filter" @input="filter = $event.target.value" placeholder="search by title">
-        {{filter}}
+        <input type="search" class="filter" v-on:input="filter = $event.target.value" placeholder="search by title"/>
         <ul class="photos-list">
-            <li class="photo-item" v-for="photo of photos">
+            <li class="photo-item" v-for="photo of photosWithFilter">
                 <panel :title="photo.title">
                     <img class="panel-pic" :src="photo.url" :alt="photo.title"> 
                 </panel>
@@ -20,7 +19,7 @@
 
     export default {
         components: {
-            'panel': Panel,
+            'panel': Panel, 
         },
         data() {
             return {
@@ -28,6 +27,16 @@
                 photos: [],
                 filter: '',
             }
+        },
+        computed: {
+            photosWithFilter() {
+                if(this.filter){
+                    let regex = new RegExp(this.filter.trim(), 'i');
+                    return this.photos.filter(photo => regex.test(photo.title));
+                } else {
+                    return this.photos;
+                }
+            },
         },
         created() {
             this.$http.get('http://localhost:3000/v1/photos')
