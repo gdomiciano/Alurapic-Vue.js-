@@ -1,5 +1,5 @@
 <template>
-    <h2 class="centralized-title"></h2>
+    <h2 class="centralized-title">Register</h2>
 </template>
 <script>
     

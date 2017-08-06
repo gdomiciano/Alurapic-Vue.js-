@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <h1 class="page-title">{{ title }}</h1>
@@ -15,8 +13,8 @@
 </template> 
 
 <script>
-    import Panel from './shared/panel/Panel.vue';
-    import ResponsiveImg from './shared/responsive-img/ResponsiveImg.vue';
+    import Panel from '../shared/panel/Panel.vue';
+    import ResponsiveImg from '../shared/responsive-img/ResponsiveImg.vue';
 
     export default {
         components: {
