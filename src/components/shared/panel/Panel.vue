@@ -19,7 +19,7 @@
             return {
                 isVisible: true,
             }
-        }
+        },  
     }
 </script>
 
