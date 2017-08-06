@@ -9,7 +9,9 @@
                 </li>
             </ul>            
         </nav>
-        <router-view></router-view>
+        <transition name="page">
+            <router-view></router-view>
+        </transition>
     </div>
 </template> 
 
@@ -26,4 +28,13 @@
 
 <style scoped lang="scss">
     
+    .page-enter,
+    .page-leave-active  {
+        opacity: 0;
+    }
+    
+    .page-enter-active,
+    .page-leave-active {
+        transition: opacity 1s
+    }
 </style>
